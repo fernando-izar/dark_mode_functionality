@@ -8,3 +8,9 @@
     background 0.2s ease-out,
     color 0.2s ease-out;
 }
+
+/* Dark mode */
+.app[data-theme="dark"] {
+  background: #34374c;
+  color: #fff;
+}

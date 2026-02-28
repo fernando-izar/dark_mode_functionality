@@ -1,6 +1,4 @@
-import React from 'react'
-
-import classes from './home.module.css'
+import classes from "./home.module.css";
 
 export const Home = () => (
   <div>
@@ -16,4 +14,4 @@ export const Home = () => (
       community of subject-matter experts and friends along the way.
     </p>
   </div>
-)
+);
