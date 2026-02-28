@@ -8,10 +8,8 @@ import { Nav } from "./nav";
 import { useTheme } from "./context/ThemeContext";
 
 export const App = () => {
-  const { isDark } = useTheme();
-
   return (
-    <div className={classes.app} data-theme={isDark ? "dark" : "light"}>
+    <div className={classes.app}>
       <Nav />
       <Switch>
         <Route path="/about">
