@@ -10,29 +10,56 @@ const ThemeContext = createContext(null);
 
 function getInitialIsDark() {
   const stored = localStorage.getItem("darkMode");
+
+  // If user has chosen manually, use it
   if (stored !== null) return stored === "true";
-  if (window.matchMedia)
+
+  // Otherwise follow system
+  if (window.matchMedia) {
     return window.matchMedia("(prefers-color-scheme: dark)").matches;
-  return false; // fallback: light
+  }
+
+  return false;
 }
 
 export const ThemeProvider = ({ children }) => {
   const [isDark, setIsDark] = useState(getInitialIsDark);
 
-  const toggleTheme = () => setIsDark((prev) => !prev);
+  const toggleTheme = () => {
+    setIsDark((prev) => {
+      const next = !prev;
 
+      // Save manual choice
+      localStorage.setItem("darkMode", String(next));
+
+      return next;
+    });
+  };
+
+  // Apply theme
   useEffect(() => {
-    localStorage.setItem("darkMode", String(isDark));
-
     const theme = isDark ? "dark" : "light";
     document.documentElement.dataset.theme = theme;
   }, [isDark]);
 
+  // Listen to system changes
   useEffect(() => {
-    const id = requestAnimationFrame(() => {
-      document.documentElement.classList.add("theme-ready");
-    });
-    return () => cancelAnimationFrame(id);
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const handleChange = (e) => {
+      const stored = localStorage.getItem("darkMode");
+
+      // Only react if user hasn't manually chosen
+      if (stored === null) {
+        setIsDark(e.matches);
+      }
+    };
+
+    media.addEventListener("change", handleChange);
+
+    return () => {
+      media.removeEventListener("change", handleChange);
+    };
   }, []);
 
   const value = useMemo(() => ({ isDark, toggleTheme }), [isDark]);
