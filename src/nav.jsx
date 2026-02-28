@@ -1,13 +1,14 @@
+import React from "react";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "./context/ThemeContext";
 
 import classes from "./nav.module.css";
 
 export const Nav = () => {
-  const { isDark, toogleTheme } = useTheme();
+  const { isDark, toggleTheme } = useTheme();
+  console.log("isDark", isDark);
 
   return (
     <nav className={classes.nav}>
@@ -20,8 +21,7 @@ export const Nav = () => {
         </li>
       </ul>
       <button
-        onClick={toogleTheme}
-        // className={`${classes.button} dark-mode-button`}
+        onClick={toggleTheme}
         className={classes.button}
         aria-label="Toggle dark mode"
       >
