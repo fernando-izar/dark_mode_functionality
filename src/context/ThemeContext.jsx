@@ -26,7 +26,7 @@ export const ThemeProvider = ({ children }) => {
 
     const theme = isDark ? "dark" : "light";
     document.documentElement.dataset.theme = theme;
-    document.body.dataset.theme = theme;
+    // document.body.dataset.theme = theme;
   }, [isDark]);
 
   useEffect(() => {
