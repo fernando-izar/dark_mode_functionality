@@ -1,27 +1,56 @@
 html,
 body {
-  background-color: #fff;
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-body {
+/* Light defaults */
+html {
+  background-color: #fff;
   color: #34374c;
-  font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Dark mode */
+html[data-theme="dark"] {
+  background-color: #34374c;
+  color: #fff;
+}
+
+body {
+  background-color: inherit;
+  color: inherit;
+
+  font-family: "Helvetica Neue", sans-serif;
   font-size: 16px;
-  font-smooth: always;
   font-weight: 400;
   letter-spacing: 0.2px;
   line-height: 24px;
+
   text-rendering: optimizeLegibility;
-  text-rendering: geometricPrecision;
-  -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
   height: 100%;
   position: relative;
   width: 100%;
+}
+
+/* Smooth transitions AFTER first paint */
+html.theme-ready {
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-ready {
+    transition: none;
+  }
+}
+
+a {
+  color: inherit;
 }

@@ -1,10 +1,11 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
-import classes from './app.module.css'
-import { About } from './about'
-import { Home } from './home'
-import { Nav } from './nav'
+import classes from "./app.module.css";
+import { About } from "./about";
+import { Home } from "./home";
+import { Nav } from "./nav";
+import { useTheme } from "./context/ThemeContext";
 
 export const App = () => {
   return (
@@ -19,5 +20,5 @@ export const App = () => {
         </Route>
       </Switch>
     </div>
-  )
-}
+  );
+};

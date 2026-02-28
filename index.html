@@ -5,7 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" href="icon.png" type="image/png" />
     <title>Public - Exercise 1</title>
+
+    <!-- Set theme as early as possible-->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("darkMode");
+          var isDark;
+
+          if (stored !== null) {
+            isDark = stored === "true";
+          } else if (window.matchMedia) {
+            isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          } else {
+            isDark = false; // fallback: light
+          }
+
+          document.documentElement.dataset.theme = isDark ? "dark" : "light";
+        } catch (e) {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+
+    <!-- Critical CSS to avoid flicker before index.css loads -->
+    <style>
+      html { background-color: #fff; color: #34374c; }
+      html[data-theme="dark"] { background-color: #34374c; color: #fff; }
+    </style>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/index.jsx"></script>
