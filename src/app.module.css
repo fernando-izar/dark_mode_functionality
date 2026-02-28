@@ -1,5 +1,5 @@
 .app {
-  background: transparent; /* or: inherit */
+  background: transparent;
   color: inherit;
   box-sizing: border-box;
   min-height: 100%;
