@@ -1,0 +1,10 @@
+.app {
+  background: #fff;
+  box-sizing: border-box;
+  color: #34374c;
+  min-height: 100%;
+  padding: 40px 80px;
+  transition:
+    background 0.2s ease-out,
+    color 0.2s ease-out;
+}

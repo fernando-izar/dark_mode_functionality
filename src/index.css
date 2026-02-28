@@ -1,0 +1,27 @@
+html,
+body {
+  background-color: #fff;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #34374c;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  font-smooth: always;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  text-rendering: optimizeLegibility;
+  text-rendering: geometricPrecision;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}

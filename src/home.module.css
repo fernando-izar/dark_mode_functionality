@@ -1,0 +1,13 @@
+.title {
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 60px;
+}
+
+.text {
+  font-size: 20px;
+  line-height: 30px;
+}
+.text > strong {
+  font-weight: 500;
+}
