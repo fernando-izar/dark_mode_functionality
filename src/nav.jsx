@@ -8,7 +8,6 @@ import classes from "./nav.module.css";
 
 export const Nav = () => {
   const { isDark, toggleTheme } = useTheme();
-  console.log("isDark", isDark);
 
   return (
     <nav className={classes.nav}>
